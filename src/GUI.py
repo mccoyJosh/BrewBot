@@ -87,13 +87,19 @@ class GUI:
         self.root = root
 
     def j_button_command(self):
-        self.robot.move_arm()
+        self.robot.go_home()
+        self.robot.get_drink_jmc()
+        self.robot.go_home()
 
     def c_button_command(self):
-        self.robot.close_coffee_machine()
+        self.robot.go_home()
+        self.robot.get_drink_columbian()
+        self.robot.go_home()
 
     def t_button_command(self):
-        print("command")
+        self.robot.go_home()
+        self.robot.get_drink_tea()
+        self.robot.go_home()
 
     def close_command(self):
         self.robot.turn_off()
