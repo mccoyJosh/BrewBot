@@ -34,7 +34,7 @@ class RobotControl:
 
     def pull_cart_out(self):
         self.device.move_to(218, -59, -79, 77, wait=True)
-        self.device.move_to(218, -59, -110, 77, wait=True)
+        self.device.move_to(218, -59, -112, 77, wait=True)
         self.device.suck(True)
         self.device.move_to(218, -59, -105, 77, wait=True)
         self.device.move_to(234, 174, -105, 77, wait=True)
@@ -60,30 +60,25 @@ class RobotControl:
         self.device.move_to(234, -169, 136, r, wait=True)
         self.device.suck(False)
 
-
-
     def get_drink_columbian(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.move_to(63, 231, -100, r, wait=True)
-        self.device.move_to(63, 231, -132, r, wait=True)
+        self.device.move_to(63, 231, -133, r, wait=True)
         self.device.suck(True)
         self.device.move_to(63, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.suck(False)
-
 
     def get_drink_jmc(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.move_to(-14, 231, -100, r, wait=True)
-        self.device.move_to(-14, 231, -132, r, wait=True)
+        self.device.move_to(-14, 231, -133, r, wait=True)
         self.device.suck(True)
         self.device.move_to(-14, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.suck(False)
-
-
 
     def get_drink_tea(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
@@ -93,16 +88,30 @@ class RobotControl:
         self.device.suck(True)
         self.device.move_to(-102, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
+        self.device.suck(False)
 
+    def open_single_serve(self):
+        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+        self.device.move_to(164, -70, 8, r, wait=True)
+        self.device.move_to(138, -102, 8, r, wait=True)
+        self.device.move_to(138, -102, 47, r, wait=True)
+        self.device.move_to(164, -70, 47, r, wait=True)
 
+    def get_to_right(self):
+        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+        self.device.move_to(195, -32, 135, r, wait=True)
+        self.device.move_to(177, -128, 135, r, wait=True)
+        self.device.move_to(136, -164, 135, r, wait=True)
+        self.device.move_to(131, -205, 91, r, wait=True)
+        self.device.move_to(20, -205, 68, r, wait=True)
 
-
-    def close_hand(self):
-        self.device.grip(True)
-
-    def open_hand(self):
-        self.device.grip(False)
-
+    def get_to_left_not_home(self):
+        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+        self.device.move_to(20, -205, 68, r, wait=True)
+        self.device.move_to(131, -205, 91, r, wait=True)
+        self.device.move_to(136, -164, 135, r, wait=True)
+        self.device.move_to(177, -128, 135, r, wait=True)
+        self.device.move_to(195, -32, 135, r, wait=True)
 
 '''
 Notes:

@@ -118,7 +118,10 @@ class GUI:
 
     def test_command_out(self):
         self.robot.go_home()
-        self.robot.pull_cart_out()
+        # self.robot.pull_cart_out()
+        # self.robot.open_single_serve()
+        self.robot.get_to_right()
+        self.robot.get_to_left_not_home()
         self.robot.go_home()
 
     def c_button_command(self):
@@ -130,7 +133,6 @@ class GUI:
         self.robot.go_home()
         self.robot.get_drink_tea()
         self.robot.go_home()
-        self.robot.put_pod_in_machine()
 
     def close_command(self):
         self.robot.turn_off()
