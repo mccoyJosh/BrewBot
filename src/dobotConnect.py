@@ -32,16 +32,35 @@ class RobotControl:
     def go_home(self):
         self.device.move_to(166, 0, 38, 77, wait=True)
 
+    def pull_cart_out(self):
+        self.device.move_to(218, -59, -79, 77, wait=True)
+        self.device.move_to(218, -59, -110, 77, wait=True)
+        self.device.suck(True)
+        self.device.move_to(218, -59, -105, 77, wait=True)
+        self.device.move_to(234, 174, -105, 77, wait=True)
+        self.device.suck(False)
+        self.device.move_to(234, 174, 9, 77, wait=True)
+
+    def put_cart_in(self):
+        self.device.move_to(234, 174, 9, 77, wait=True)
+        self.device.move_to(234, 174, -110, 77, wait=True)
+        self.device.suck(True)
+        self.device.move_to(234, 174, -105, 77, wait=True)
+        self.device.move_to(218, -59, -105, 77, wait=True)
+        self.device.suck(False)
+        self.device.move_to(218, -59, -79, 77, wait=True)
+
     def put_pod_in_machine(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        self.device.move_to(230, -55, 165, r, wait=True)
-        self.device.move_to(222, -86, 164, r, wait=True)
-        self.device.move_to(222, -104, 164, r, wait=True)
-        self.device.move_to(220, -126, 161, r, wait=True)
-        self.device.move_to(226, -138, 155, r, wait=True)
-        self.device.move_to(230, -156, 147, r, wait=True)
-        self.device.move_to(220, -126, 161, r, wait=True)
-        self.device.move_to(227, -16, 138, r, wait=True)
+        self.device.move_to(205, -47, 63, r, wait=True)
+        self.device.move_to(223, -71, 162, r, wait=True)
+        self.device.move_to(227, -107, 162, r, wait=True)
+        self.device.move_to(221, -124, 155, r, wait=True)
+        self.device.move_to(230, -162, 136, r, wait=True)
+        self.device.move_to(234, -169, 136, r, wait=True)
+        self.device.suck(False)
+
+
 
     def get_drink_columbian(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
@@ -53,13 +72,17 @@ class RobotControl:
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.suck(False)
 
+
     def get_drink_jmc(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.move_to(-14, 231, -100, r, wait=True)
         self.device.move_to(-14, 231, -132, r, wait=True)
+        self.device.suck(True)
         self.device.move_to(-14, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
+        self.device.suck(False)
+
 
 
     def get_drink_tea(self):
@@ -67,8 +90,10 @@ class RobotControl:
         self.device.move_to(205, 206, 28, r, wait=True)
         self.device.move_to(-102, 231, -100, r, wait=True)
         self.device.move_to(-102, 231, -130, r, wait=True)
+        self.device.suck(True)
         self.device.move_to(-102, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
+
 
 
 
@@ -85,6 +110,8 @@ z upper bound: ~160
 ----------------------------
 Important positions
     Base Place: X:166 Y:0 Z:38
+    
+    Cart Pull: Z: -108
     
     Coffee Machine:
         

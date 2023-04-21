@@ -37,6 +37,26 @@ class GUI:
         jamaican_button.place(x=240, y=130, width=100, height=25)
         jamaican_button["command"] = self.j_button_command
 
+        test_button = tk.Button(root)
+        test_button["bg"] = "#90ee90"
+        ft = tk_font.Font(family='Times', size=10)
+        test_button["font"] = ft
+        test_button["fg"] = "#000000"
+        test_button["justify"] = "center"
+        test_button["text"] = "TEST in"
+        test_button.place(x=400, y=260, width=60, height=25)
+        test_button["command"] = self.test_command_in
+
+        test_button = tk.Button(root)
+        test_button["bg"] = "#90ee90"
+        ft = tk_font.Font(family='Times', size=10)
+        test_button["font"] = ft
+        test_button["fg"] = "#000000"
+        test_button["justify"] = "center"
+        test_button["text"] = "TEST out"
+        test_button.place(x=400, y=220, width=60, height=25)
+        test_button["command"] = self.test_command_out
+
         colombian_button = tk.Button(root)
         colombian_button["bg"] = "#90ee90"
         ft = tk_font.Font(family='Times', size=10)
@@ -91,6 +111,16 @@ class GUI:
         self.robot.get_drink_jmc()
         self.robot.go_home()
 
+    def test_command_in(self):
+        self.robot.go_home()
+        self.robot.put_cart_in()
+        self.robot.go_home()
+
+    def test_command_out(self):
+        self.robot.go_home()
+        self.robot.pull_cart_out()
+        self.robot.go_home()
+
     def c_button_command(self):
         self.robot.go_home()
         self.robot.get_drink_columbian()
@@ -100,6 +130,7 @@ class GUI:
         self.robot.go_home()
         self.robot.get_drink_tea()
         self.robot.go_home()
+        self.robot.put_pod_in_machine()
 
     def close_command(self):
         self.robot.turn_off()
