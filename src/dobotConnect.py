@@ -97,21 +97,35 @@ class RobotControl:
         self.device.move_to(138, -102, 47, r, wait=True)
         self.device.move_to(164, -70, 47, r, wait=True)
 
-    def get_to_right(self):
+    def turn_on_machine(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        self.device.move_to(195, -32, 135, r, wait=True)
-        self.device.move_to(177, -128, 135, r, wait=True)
-        self.device.move_to(136, -164, 135, r, wait=True)
-        self.device.move_to(131, -205, 91, r, wait=True)
-        self.device.move_to(20, -205, 68, r, wait=True)
+        self.device.move_to(195, -47, 38, r, wait=True)
+        self.device.move_to(186, -65, 38, r, wait=True)
+        self.device.move_to(186, -65, -48, r, wait=True)
+        self.device.move_to(144, -73, -48, r, wait=True)
+        self.device.move_to(136, -73, -31, r, wait=True)
+        self.device.move_to(132, -93, -31, r, wait=True)
+        self.device.move_to(143, -93, -31, r, wait=True)
+        self.device.move_to(132, -93, -31, r, wait=True)
+        self.device.move_to(132, -74, -32, r, wait=True)
+        self.device.move_to(151, -78, -32, r, wait=True)
+        self.device.move_to(132, -74, -32, r, wait=True)
+        self.device.move_to(152, -63, -32, r, wait=True)
+        self.device.move_to(166, -57, -32, r, wait=True)
+        self.device.move_to(166, 0, -32, r, wait=True)
 
-    def get_to_left_not_home(self):
-        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        self.device.move_to(20, -205, 68, r, wait=True)
-        self.device.move_to(131, -205, 91, r, wait=True)
-        self.device.move_to(136, -164, 135, r, wait=True)
-        self.device.move_to(177, -128, 135, r, wait=True)
-        self.device.move_to(195, -32, 135, r, wait=True)
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 Notes:
