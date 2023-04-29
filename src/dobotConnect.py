@@ -15,20 +15,6 @@ class RobotControl:
     def turn_off(self):
         self.device.close()
 
-    def move_arm(self):
-        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        print(f'x:{x} y:{y} z:{z} j1:{j1} j2:{j2} j3:{j3} j4:{j4}')
-        self.device.move_to(x + 20, y, z, r, wait=False)
-        self.device.move_to(x, y, z, r, wait=True)  # we wait until this movement is done before continuing
-
-    def close_coffee_machine(self):
-        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        print(f'x:{x} y:{y} z:{z} j1:{j1} j2:{j2} j3:{j3} j4:{j4}')
-        self.device.move_to(40, -220, 140, r, wait=False)
-        self.device.move_to(50, -270, 120, r, wait=True)
-        self.device.move_to(40, -220, 140, r, wait=True)
-        self.device.move_to(x, y, z, r, wait=True)  # we wait until this movement is done before continuing
-
     def go_home(self):
         self.device.move_to(166, 0, 38, 77, wait=True)
 
@@ -68,7 +54,6 @@ class RobotControl:
         self.device.suck(True)
         self.device.move_to(63, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
-        self.device.suck(False)
 
     def get_drink_jmc(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
@@ -78,7 +63,6 @@ class RobotControl:
         self.device.suck(True)
         self.device.move_to(-14, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
-        self.device.suck(False)
 
     def get_drink_tea(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
@@ -88,14 +72,37 @@ class RobotControl:
         self.device.suck(True)
         self.device.move_to(-102, 231, -100, r, wait=True)
         self.device.move_to(205, 206, 28, r, wait=True)
-        self.device.suck(False)
 
     def open_single_serve(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-        self.device.move_to(164, -70, 8, r, wait=True)
-        self.device.move_to(138, -102, 8, r, wait=True)
-        self.device.move_to(138, -102, 47, r, wait=True)
-        self.device.move_to(164, -70, 47, r, wait=True)
+        self.device.move_to(136, -73, -31, r, wait=True)
+        self.device.move_to(132, -93, -31, r, wait=True)
+        self.device.move_to(138, -109, -31, r, wait=True)
+        self.device.move_to(138, -109, 20, r, wait=True)
+        self.device.move_to(138, -109, -31, r, wait=True)
+        self.device.move_to(132, -93, -31, r, wait=True)
+        self.device.move_to(136, -73, -31, r, wait=True)
+
+    def close_single_serve(self):
+        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+        self.device.move_to(136, -73, -31, r, wait=True)
+        # TODO finish implementing
+
+    def place_pod_in_single_serve(self):
+        (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+        self.device.move_to(230, 0, 38, r, wait=True)
+        self.device.move_to(230, -40, 32, r, wait=True)
+        self.device.move_to(230, -40, 127, r, wait=False)
+        self.device.move_to(234, -67, 162, r, wait=True)
+        self.device.move_to(231, -99, 162, r, wait=True)
+        self.device.move_to(231, -111, 160, r, wait=True)
+        self.device.move_to(231, -127, 157, r, wait=True)
+        self.device.move_to(230, -151, 147, r, wait=True)
+        self.device.move_to(218, -160, 137, r, wait=False)
+        self.device.move_to(240, -160, 137, r, wait=True)
+        self.device.suck(False)
+        self.device.move_to(218, 0, 137, r, wait=True)
+        self.device.move_to(218, 0, 38, r, wait=True)
 
     def turn_on_machine(self):
         (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
@@ -105,26 +112,14 @@ class RobotControl:
         self.device.move_to(144, -73, -48, r, wait=True)
         self.device.move_to(136, -73, -31, r, wait=True)
         self.device.move_to(132, -93, -31, r, wait=True)
-        self.device.move_to(143, -93, -31, r, wait=True)
+        self.device.move_to(150, -93, -31, r, wait=True)
         self.device.move_to(132, -93, -31, r, wait=True)
         self.device.move_to(132, -74, -32, r, wait=True)
-        self.device.move_to(151, -78, -32, r, wait=True)
+        self.device.move_to(157, -78, -32, r, wait=True)
         self.device.move_to(132, -74, -32, r, wait=True)
         self.device.move_to(152, -63, -32, r, wait=True)
         self.device.move_to(166, -57, -32, r, wait=True)
         self.device.move_to(166, 0, -32, r, wait=True)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 '''

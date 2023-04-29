@@ -106,11 +106,6 @@ class GUI:
 
         self.root = root
 
-    def j_button_command(self):
-        self.robot.go_home()
-        self.robot.get_drink_jmc()
-        self.robot.go_home()
-
     def test_command_in(self):
         self.robot.go_home()
         self.robot.put_cart_in()
@@ -118,12 +113,18 @@ class GUI:
 
     def test_command_out(self):
         self.robot.go_home()
-        self.robot.pull_cart_out()
+        # self.robot.pull_cart_out()
+        # self.robot.place_pod_in_single_serve()
+        self.robot.go_home()
+
+    def j_button_command(self):
+        self.robot.go_home()
+        self.general_make_coffee('j')
         self.robot.go_home()
 
     def c_button_command(self):
         self.robot.go_home()
-        self.robot.get_drink_columbian()
+        self.general_make_coffee('c')
         self.robot.go_home()
 
     def t_button_command(self):
@@ -153,7 +154,7 @@ class GUI:
         elif request == 't':
             self.robot.get_drink_tea()
         self.robot.go_home()
-        # put the given pod in machine
+        self.robot.place_pod_in_single_serve()
         self.robot.go_home()
         # close machine
         self.robot.go_home()
@@ -162,5 +163,3 @@ class GUI:
         # wait for brew to finish!
         self.robot.pull_cart_out()
         self.robot.go_home()
-
-
