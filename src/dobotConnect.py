@@ -7,7 +7,7 @@ class RobotControl:
     def __init__(self):
         available_ports = list_ports.comports()
         print(f'available ports: {[x.device for x in available_ports]}')
-        port_for_bot = available_ports[1].device
+        port_for_bot = available_ports[0].device
         print(f'port we are using: {port_for_bot}')
         port = port_for_bot
         self.device = pydobot.Dobot(port=port, verbose=True)
@@ -99,7 +99,8 @@ class RobotControl:
         self.device.move_to(231, -127, 157, r, wait=True)
         self.device.move_to(230, -151, 147, r, wait=True)
         self.device.move_to(218, -160, 137, r, wait=False)
-        self.device.move_to(240, -160, 137, r, wait=True)
+        #self.device.move_to(240, -160, 137, r, wait=True)
+        self.device.move_to(240, -165, 134, r, wait=True)
         self.device.suck(False)
         self.device.move_to(218, 0, 137, r, wait=True)
         self.device.move_to(218, 0, 38, r, wait=True)

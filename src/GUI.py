@@ -113,8 +113,11 @@ class GUI:
 
     def test_command_out(self):
         self.robot.go_home()
+        self.robot.get_drink_tea()
+        self.robot.go_home()
+        self.robot.place_pod_in_single_serve()
+        self.robot.go_home()
         # self.robot.pull_cart_out()
-        # self.robot.place_pod_in_single_serve()
         self.robot.go_home()
 
     def j_button_command(self):
